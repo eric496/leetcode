@@ -20,15 +20,15 @@ class Solution {
         if (root == null) return 0;
         TreeNode left = root, right = root;
         int leftHeight = 0, rightHeight = 0;
-        while(left != null) {
+        while (left != null) {
             left = left.left;
             leftHeight++;
         } 
-        while(right != null) {
+        while (right != null) {
             right = right.right;
             rightHeight++;
         }
-        if(leftHeight == rightHeight) return (1 << leftHeight) - 1;
+        if (leftHeight == rightHeight) return (1 << leftHeight) - 1;
         return 1 + countNodes(root.left) + countNodes(root.right);
     }
 }
