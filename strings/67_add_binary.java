@@ -14,6 +14,7 @@ Thought:
     StringBuffer instance method: insert() and append()
 */
 
+
 class Solution {
     public String addBinary(String a, String b) {
         if (a == null || a.length() == 0) return b;
