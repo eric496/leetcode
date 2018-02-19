@@ -8,3 +8,18 @@ Note:
     You must do this in-place without making a copy of the array.
     Minimize the total number of operations.
 */
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        if (nums == null || nums.length == 0) return;
+        int ix = 0;
+        for (int n : nums) {
+            if (n != 0) {
+                nums[ix++] = n;
+            }
+        }
+        while (ix < nums.length) {
+            nums[ix++] = 0;
+        }
+    }
+}
