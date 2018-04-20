@@ -10,3 +10,22 @@ Example 2:
 Note:
     The vowels does not include the letter "y".
 */
+
+class Solution {
+    public static final String VOWELS = "aeiouAEIOU";
+    public String reverseVowels(String s) {
+        if (s == null || s.length() == 0) return "";
+        char[] sCharArray = s.toCharArray();
+        int start = 0, end = s.length()-1;
+        while (start < end) {
+            while (start < end && !VOWELS.contains(sCharArray[start]+"")) start++;
+            while (start < end && !VOWELS.contains(sCharArray[end]+"")) end--;
+            char temp = sCharArray[start];
+            sCharArray[start] = sCharArray[end];
+            sCharArray[end] = temp;
+            start++;
+            end--;
+        }
+        return new String(sCharArray);
+    }
+}
