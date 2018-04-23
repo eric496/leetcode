@@ -13,3 +13,28 @@ What if nums1's size is small compared to nums2's size? Which algorithm is bette
 What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once?
 */
 
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        if (nums1 == null || nums1.length == 0 || nums2 == null || nums2.length == 0) return new int[0];
+        Map<Integer, Integer> map = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+        for (int n1 : nums1) {
+            if (map.containsKey(n1)) {
+                map.put(n1, map.get(n1)+1);
+            } else {
+                map.put(n1, 1);
+            }
+        }
+        for (int n2 : nums2) {
+            if (map.containsKey(n2) && map.get(n2) > 0) {
+                map.put(n2, map.get(n2)-1);
+                result.add(n2);
+            }
+        }
+        int[] res = new int[result.size()];
+        for (int i = 0; i < res.length; i++) {
+            res[i] = result.get(i);
+        }
+        return res;
+    }
+}
